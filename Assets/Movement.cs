@@ -7,15 +7,13 @@ public class Movement : MonoBehaviour {
     public float velocity;
     public float acceleration;
     public float mass;
-    public Rigidbody cube;
+    public GameObject car;
 
 
     // Use this for initialization
     void Start () {
 
-        cube = GetComponent<Rigidbody>();
-        cube.mass = mass;
-        
+        acceleration = 9.8f;
 	}
 	
 	// Update is called once per frame
@@ -25,12 +23,12 @@ public class Movement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position = Vector3.Lerp(transform.position, transform.TransformPoint(Vector3.left), currentVelocity * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, transform.TransformPoint(Vector2.left), currentVelocity * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position = Vector3.Lerp(transform.position, transform.TransformPoint(Vector3.right), currentVelocity * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, transform.TransformPoint(Vector2.right), currentVelocity * Time.deltaTime);
         }
 
 
